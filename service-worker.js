@@ -1,10 +1,11 @@
 // ===== SERVICE WORKER PARA PORTAL PWA =====
-const CACHE_NAME = 'pwa-portal-v1';
+const CACHE_NAME = 'pwa-portal-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
     './styles.css',
-    './script.js'
+    './script.js',
+    './manifest.json'
 ];
 
 // ===== INSTALAR SERVICE WORKER =====

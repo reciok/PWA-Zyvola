@@ -363,13 +363,6 @@ window.addEventListener('load', () => {
     loadHistory();
     generatePassword();
     checkStoredToken();
-    
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js').catch(err => {
-            console.log('Service Worker registration failed:', err);
-        });
-    }
 });
 
 // ===== ACCESO A TECLADO =====
