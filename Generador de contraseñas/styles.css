@@ -112,6 +112,13 @@ main {
     gap: 10px;
 }
 
+.auth-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--gris-medio), transparent);
+    margin: 2px 0;
+}
+
 .login-input {
     padding: 12px;
     border: 2px solid var(--gris-medio);

@@ -15,11 +15,15 @@ const symbolsCheckbox = document.getElementById('symbols');
 const strengthFill = document.getElementById('strengthFill');
 const strengthText = document.getElementById('strengthText');
 const historyList = document.getElementById('historyList');
+const registerForm = document.getElementById('registerForm');
+const registerEmailInput = document.getElementById('registerEmail');
+const registerPasswordInput = document.getElementById('registerPassword');
 const loginForm = document.getElementById('loginForm');
 const loginEmailInput = document.getElementById('loginEmail');
 const loginPasswordInput = document.getElementById('loginPassword');
 const loginStatus = document.getElementById('loginStatus');
 
+const REGISTER_URL = 'https://pwa-zyvola.onrender.com/auth/register';
 const LOGIN_URL = 'https://pwa-zyvola.onrender.com/auth/login';
 const ME_URL = 'https://pwa-zyvoda.onrender.com/me';
 const TOKEN_STORAGE_KEY = 'authToken';
@@ -259,6 +263,45 @@ async function handleLogin(event) {
     }
 }
 
+async function handleRegister(event) {
+    event.preventDefault();
+
+    const email = registerEmailInput.value.trim();
+    const password = registerPasswordInput.value;
+
+    if (!email || !password) {
+        setLoginStatus('Completa email y contraseña para registrarte.', 'error');
+        return;
+    }
+
+    setLoginStatus('Registrando usuario...');
+
+    try {
+        const response = await fetch(REGISTER_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'No se pudo completar el registro');
+        }
+
+        setLoginStatus('Registro completado. Ahora inicia sesión.', 'success');
+        loginEmailInput.value = email;
+        loginPasswordInput.value = '';
+        registerForm.reset();
+        loginPasswordInput.focus();
+    } catch (error) {
+        setLoginStatus(error.message, 'error');
+        console.error('Error en registro:', error);
+    }
+}
+
 function checkStoredToken() {
     const token = localStorage.getItem(TOKEN_STORAGE_KEY);
     if (!token) {
@@ -299,6 +342,7 @@ copyBtn.addEventListener('click', () => {
     }
 });
 clearHistoryBtn.addEventListener('click', clearHistory);
+registerForm.addEventListener('submit', handleRegister);
 loginForm.addEventListener('submit', handleLogin);
 
 // Actualizar la longitud mostrada

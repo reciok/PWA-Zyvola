@@ -24,6 +24,26 @@
         <main>
             <section class="auth-panel">
                 <h2>Acceso</h2>
+                <form id="registerForm" class="login-form">
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        class="login-input"
+                        placeholder="Email para registro"
+                        required
+                    >
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        class="login-input"
+                        placeholder="Contraseña para registro"
+                        required
+                    >
+                    <button type="submit" class="login-btn">Registrarse</button>
+                </form>
+
+                <div class="auth-divider"></div>
+
                 <form id="loginForm" class="login-form">
                     <input
                         type="email"
