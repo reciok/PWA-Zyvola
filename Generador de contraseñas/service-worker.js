@@ -1,5 +1,5 @@
 // ===== SERVICE WORKER PARA PWA =====
-const CACHE_NAME = 'password-generator-v1';
+const CACHE_NAME = 'password-generator-v2';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
