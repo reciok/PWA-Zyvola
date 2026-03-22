@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generador seguro de contraseñas personalizadas">
+    <meta name="theme-color" content="#CFB53B">
+    <title>Generador de Contraseñas</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23CFB53B' width='192' height='192'/><circle cx='96' cy='96' r='45' fill='none' stroke='%23FFFFF0' stroke-width='8'/><circle cx='96' cy='96' r='20' fill='%23FFFFF0'/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23CFB53B' width='192' height='192'/><circle cx='96' cy='96' r='45' fill='none' stroke='%23FFFFF0' stroke-width='8'/><circle cx='96' cy='96' r='20' fill='%23FFFFF0'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generador de Contraseñas</h1>
+            <p>Crea contraseñas fuertes y seguras</p>
+        </header>
+
+        <main>
+            <div class="password-display">
+                <input 
+                    type="text" 
+                    id="passwordOutput" 
+                    class="password-input" 
+                    readonly
+                    placeholder="Tu contraseña aparecerá aquí"
+                >
+                <button class="copy-btn" id="copyBtn" title="Copiar contraseña">
+                    Copiar
+                </button>
+            </div>
+
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="length">Longitud: <span id="lengthValue">16</span></label>
+                    <input 
+                        type="range" 
+                        id="length" 
+                        min="8" 
+                        max="32" 
+                        value="16"
+                        class="slider"
+                    >
+                </div>
+
+                <div class="options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span>Mayúsculas (A-Z)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span>Minúsculas (a-z)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" id="numbers" checked>
+                        <span>Números (0-9)</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" id="symbols" checked>
+                        <span>Símbolos (!@#$%)</span>
+                    </label>
+                </div>
+
+                <div class="strength-indicator">
+                    <p>Fortaleza:</p>
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                    <p class="strength-text" id="strengthText">—</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="generate-btn" id="generateBtn">
+                    Generar Contraseña
+                </button>
+                <button class="refresh-btn" id="refreshBtn" title="Generar nueva">
+                    ↻
+                </button>
+            </div>
+
+            <div class="history">
+                <h2>Últimas Generadas</h2>
+                <div class="history-list" id="historyList"></div>
+                <button class="clear-history-btn" id="clearHistoryBtn">Limpiar historial</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Las contraseñas se generan en tu dispositivo. Nunca se almacenan en servidores.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
