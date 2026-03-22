@@ -88,6 +88,77 @@ main {
     gap: 30px;
 }
 
+/* ===== LOGIN ===== */
+.auth-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 15px;
+    background: var(--marfil-oscuro);
+    border: 2px solid var(--gris-medio);
+}
+
+.auth-panel h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35em;
+    color: var(--azul-obsidiana);
+    font-weight: 700;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+}
+
+.login-input {
+    padding: 12px;
+    border: 2px solid var(--gris-medio);
+    border-radius: 10px;
+    font-size: 0.95em;
+    color: var(--azul-obsidiana);
+    background: var(--blanco-marfil);
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: var(--oro-frio);
+    box-shadow: 0 0 10px rgba(207, 181, 59, 0.25);
+}
+
+.login-btn {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--oro-frio) 0%, var(--oro-sombra) 100%);
+    color: var(--azul-obsidiana);
+    font-size: 0.95em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(207, 181, 59, 0.35);
+}
+
+.login-status {
+    min-height: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--gris-oscuro);
+}
+
+.login-status.error {
+    color: var(--rojo-debil);
+}
+
+.login-status.success {
+    color: var(--verde-exito);
+}
+
 /* ===== PASSWORD DISPLAY ===== */
 .password-display {
     display: flex;
@@ -488,6 +559,10 @@ footer {
         padding: 18px;
     }
 
+    .login-form {
+        grid-template-columns: 1fr;
+    }
+
     .options {
         grid-template-columns: 1fr 1fr;
     }
@@ -542,6 +617,14 @@ footer {
     .settings {
         padding: 15px;
         gap: 18px;
+    }
+
+    .auth-panel {
+        padding: 15px;
+    }
+
+    .auth-panel h2 {
+        font-size: 1.2em;
     }
 
     .option {
@@ -650,9 +733,25 @@ footer {
 
     .setting-group label,
     .checkbox span,
+    .auth-panel h2,
     .strength-indicator p,
     .history h2 {
         color: var(--blanco-marfil);
+    }
+
+    .auth-panel {
+        background: #2D3748;
+        border-color: var(--gris-oscuro);
+    }
+
+    .login-input {
+        background: #374151;
+        color: var(--blanco-marfil);
+        border-color: var(--gris-oscuro);
+    }
+
+    .login-status {
+        color: var(--gris-medio);
     }
 
     .history-item {
