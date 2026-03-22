@@ -1,6 +1,10 @@
 const tabs = document.querySelectorAll('.tab-btn');
 const panels = document.querySelectorAll('.tab-panel');
 
+if (typeof verificarSesionPWA === 'function') {
+    verificarSesionPWA();
+}
+
 function formatCurrency(value) {
     return new Intl.NumberFormat('es-ES', {
         style: 'currency',

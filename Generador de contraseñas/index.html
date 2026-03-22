@@ -22,48 +22,6 @@
         </header>
 
         <main>
-            <section class="auth-panel">
-                <h2>Acceso</h2>
-                <form id="registerForm" class="login-form">
-                    <input
-                        type="email"
-                        id="registerEmail"
-                        class="login-input"
-                        placeholder="Email para registro"
-                        required
-                    >
-                    <input
-                        type="password"
-                        id="registerPassword"
-                        class="login-input"
-                        placeholder="Contraseña para registro"
-                        required
-                    >
-                    <button type="submit" class="login-btn">Registrarse</button>
-                </form>
-
-                <div class="auth-divider"></div>
-
-                <form id="loginForm" class="login-form">
-                    <input
-                        type="email"
-                        id="loginEmail"
-                        class="login-input"
-                        placeholder="Email"
-                        required
-                    >
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        class="login-input"
-                        placeholder="Contraseña"
-                        required
-                    >
-                    <button type="submit" class="login-btn">Iniciar sesión</button>
-                </form>
-                <p id="loginStatus" class="login-status" aria-live="polite"></p>
-            </section>
-
             <div class="password-display">
                 <input 
                     type="text" 
@@ -139,6 +97,7 @@
         </footer>
     </div>
 
+    <script src="session.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

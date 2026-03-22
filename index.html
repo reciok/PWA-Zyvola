@@ -20,25 +20,59 @@
         </header>
 
         <main>
-            <div class="intro">
-                <p>Accede a tus aplicaciones web progresivas optimizadas para cualquier dispositivo. Todas funcionan sin conexión a internet.</p>
-            </div>
+            <section id="authSection" class="auth-section">
+                <h2>Acceso Centralizado</h2>
+                <p class="auth-intro">Inicia sesión una sola vez para usar todas tus PWAs con la misma sesión.</p>
 
-            <div class="apps-grid" id="appsGrid">
-                <!-- Las apps se cargarán dinámicamente aquí -->
-            </div>
+                <div class="auth-grid">
+                    <form id="registerForm" class="auth-card">
+                        <h3>Registro</h3>
+                        <label for="registerEmail">Email</label>
+                        <input id="registerEmail" type="email" required>
+                        <label for="registerPassword">Contraseña</label>
+                        <input id="registerPassword" type="password" required>
+                        <button type="submit">Registrarse</button>
+                    </form>
 
-            <div class="info">
-                <h2>Acerca de PWA</h2>
-                <p>Las Aplicaciones Web Progresivas (PWA) combinan lo mejor de las aplicaciones web y móviles. Son rápidas, confiables y atractivas, funcionando sin conexión y instalándose directamente en tu dispositivo.</p>
-                <ul>
-                    <li>Funcionan offline</li>
-                    <li>Carga súper rápida</li>
-                    <li>Instalables en cualquier dispositivo</li>
-                    <li>Seguras y confiables</li>
-                    <li>Se actualizan automáticamente</li>
-                </ul>
-            </div>
+                    <form id="loginForm" class="auth-card">
+                        <h3>Login</h3>
+                        <label for="loginEmail">Email</label>
+                        <input id="loginEmail" type="email" required>
+                        <label for="loginPassword">Contraseña</label>
+                        <input id="loginPassword" type="password" required>
+                        <button type="submit">Iniciar sesión</button>
+                    </form>
+                </div>
+
+                <p id="authStatus" class="auth-status" aria-live="polite"></p>
+            </section>
+
+            <section id="appsSection" class="apps-section hidden">
+                <div class="session-header">
+                    <p id="welcomeMessage">Bienvenido</p>
+                    <button id="logoutBtn" type="button" class="logout-btn">Cerrar sesión</button>
+                </div>
+
+                <div class="intro">
+                    <p>Accede a tus aplicaciones web progresivas optimizadas para cualquier dispositivo. Todas funcionan sin conexión a internet.</p>
+                </div>
+
+                <div class="apps-grid" id="appsGrid">
+                    <!-- Las apps se cargarán dinámicamente aquí -->
+                </div>
+
+                <div class="info">
+                    <h2>Acerca de PWA</h2>
+                    <p>Las Aplicaciones Web Progresivas (PWA) combinan lo mejor de las aplicaciones web y móviles. Son rápidas, confiables y atractivas, funcionando sin conexión y instalándose directamente en tu dispositivo.</p>
+                    <ul>
+                        <li>Funcionan offline</li>
+                        <li>Carga super rápida</li>
+                        <li>Instalables en cualquier dispositivo</li>
+                        <li>Seguras y confiables</li>
+                        <li>Se actualizan automaticamente</li>
+                    </ul>
+                </div>
+            </section>
         </main>
 
         <footer>
@@ -46,6 +80,6 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

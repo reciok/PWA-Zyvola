@@ -15,18 +15,6 @@ const symbolsCheckbox = document.getElementById('symbols');
 const strengthFill = document.getElementById('strengthFill');
 const strengthText = document.getElementById('strengthText');
 const historyList = document.getElementById('historyList');
-const registerForm = document.getElementById('registerForm');
-const registerEmailInput = document.getElementById('registerEmail');
-const registerPasswordInput = document.getElementById('registerPassword');
-const loginForm = document.getElementById('loginForm');
-const loginEmailInput = document.getElementById('loginEmail');
-const loginPasswordInput = document.getElementById('loginPassword');
-const loginStatus = document.getElementById('loginStatus');
-
-const REGISTER_URL = 'https://pwa-zyvola.onrender.com/auth/register';
-const LOGIN_URL = 'https://pwa-zyvola.onrender.com/auth/login';
-const ME_URL = 'https://pwa-zyvoda.onrender.com/me';
-const TOKEN_STORAGE_KEY = 'authToken';
 
 // ===== CARACTERES =====
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -198,120 +186,6 @@ function clearHistory() {
     }
 }
 
-function setLoginStatus(message, type) {
-    loginStatus.textContent = message;
-    loginStatus.classList.remove('error', 'success');
-    if (type) {
-        loginStatus.classList.add(type);
-    }
-}
-
-async function fetchCurrentUser(token) {
-    try {
-        const response = await fetch(ME_URL, {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error al validar token: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Datos del usuario logueado:', data);
-    } catch (error) {
-        console.error('No se pudo obtener el usuario autenticado:', error);
-    }
-}
-
-async function handleLogin(event) {
-    event.preventDefault();
-
-    const email = loginEmailInput.value.trim();
-    const password = loginPasswordInput.value;
-
-    if (!email || !password) {
-        setLoginStatus('Completa email y contraseña.', 'error');
-        return;
-    }
-
-    setLoginStatus('Iniciando sesión...');
-
-    try {
-        const response = await fetch(LOGIN_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok || !data.token) {
-            throw new Error(data.message || 'No se pudo iniciar sesión');
-        }
-
-        localStorage.setItem(TOKEN_STORAGE_KEY, data.token);
-        setLoginStatus('Sesión iniciada correctamente.', 'success');
-        console.log('Token JWT guardado en localStorage.');
-    } catch (error) {
-        setLoginStatus(error.message, 'error');
-        console.error('Error en login:', error);
-    }
-}
-
-async function handleRegister(event) {
-    event.preventDefault();
-
-    const email = registerEmailInput.value.trim();
-    const password = registerPasswordInput.value;
-
-    if (!email || !password) {
-        setLoginStatus('Completa email y contraseña para registrarte.', 'error');
-        return;
-    }
-
-    setLoginStatus('Registrando usuario...');
-
-    try {
-        const response = await fetch(REGISTER_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.message || 'No se pudo completar el registro');
-        }
-
-        setLoginStatus('Registro completado. Ahora inicia sesión.', 'success');
-        loginEmailInput.value = email;
-        loginPasswordInput.value = '';
-        registerForm.reset();
-        loginPasswordInput.focus();
-    } catch (error) {
-        setLoginStatus(error.message, 'error');
-        console.error('Error en registro:', error);
-    }
-}
-
-function checkStoredToken() {
-    const token = localStorage.getItem(TOKEN_STORAGE_KEY);
-    if (!token) {
-        return;
-    }
-
-    console.log('Token encontrado en localStorage. Validando usuario...');
-    fetchCurrentUser(token);
-}
-
 // ===== ALMACENAMIENTO LOCAL =====
 function saveHistory() {
     try {
@@ -342,8 +216,6 @@ copyBtn.addEventListener('click', () => {
     }
 });
 clearHistoryBtn.addEventListener('click', clearHistory);
-registerForm.addEventListener('submit', handleRegister);
-loginForm.addEventListener('submit', handleLogin);
 
 // Actualizar la longitud mostrada
 lengthInput.addEventListener('input', (e) => {
@@ -360,9 +232,11 @@ lengthInput.addEventListener('change', generatePassword);
 
 // ===== INICIALIZACIÓN =====
 window.addEventListener('load', () => {
+    if (typeof verificarSesionPWA === 'function') {
+        verificarSesionPWA();
+    }
     loadHistory();
     generatePassword();
-    checkStoredToken();
 });
 
 // ===== ACCESO A TECLADO =====

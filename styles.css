@@ -83,6 +83,109 @@ main {
     gap: 40px;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.auth-section {
+    background: var(--marfil-oscuro);
+    border: 2px solid var(--gris-medio);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.auth-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.auth-intro {
+    margin-bottom: 20px;
+    color: var(--gris-oscuro);
+}
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.auth-card {
+    background: var(--blanco-marfil);
+    border: 2px solid var(--gris-medio);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 4px;
+}
+
+.auth-card label {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.auth-card input {
+    border: 2px solid var(--gris-medio);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 0.95em;
+}
+
+.auth-card button {
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--oro-frio) 0%, var(--oro-sombra) 100%);
+    color: var(--azul-obsidiana);
+    border: 0;
+    border-radius: 10px;
+    padding: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.auth-status {
+    min-height: 22px;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.auth-status.success {
+    color: var(--verde-exito);
+}
+
+.auth-status.error {
+    color: var(--rojo-debil);
+}
+
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+#welcomeMessage {
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+.logout-btn {
+    background: var(--azul-obsidiana);
+    color: var(--blanco-marfil);
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 /* ===== INTRODUCCIÓN ===== */
 .intro {
     text-align: center;
@@ -395,6 +498,32 @@ footer {
 
     .intro {
         color: var(--blanco-marfil);
+    }
+
+    .auth-section {
+        background: #2D3748;
+        border-color: var(--gris-oscuro);
+    }
+
+    .auth-intro {
+        color: var(--gris-medio);
+    }
+
+    .auth-card {
+        background: #374151;
+        border-color: var(--gris-oscuro);
+        color: var(--blanco-marfil);
+    }
+
+    .auth-card input {
+        background: #1F2937;
+        color: var(--blanco-marfil);
+        border-color: var(--gris-oscuro);
+    }
+
+    .logout-btn {
+        background: var(--oro-frio);
+        color: #111827;
     }
 
     .app-card {
