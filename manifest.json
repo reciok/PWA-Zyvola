@@ -1,0 +1,40 @@
+{
+  "name": "Portal PWA",
+  "short_name": "Portal PWA",
+  "description": "Colección centralizada de aplicaciones web progresivas",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#CFB53B",
+  "background_color": "#FFFFF0",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><defs><linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23CFB53B;stop-opacity:1' /><stop offset='100%' style='stop-color:%23B8941D;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23gradient)' width='192' height='192'/><rect fill='%231F2937' x='30' y='30' width='132' height='132' rx='20'/><circle cx='96' cy='60' r='12' fill='%23CFB53B'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><defs><linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23CFB53B;stop-opacity:1' /><stop offset='100%' style='stop-color:%23B8941D;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23gradient)' width='512' height='512'/><rect fill='%231F2937' x='80' y='80' width='352' height='352' rx='50'/><circle cx='256' cy='160' r='32' fill='%23CFB53B'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><defs><linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23CFB53B;stop-opacity:1' /><stop offset='100%' style='stop-color:%23B8941D;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23gradient)' width='192' height='192'/><circle cx='96' cy='96' r='88' fill='none' stroke='%23FFFFF0' stroke-width='8'/><rect fill='%231F2937' x='30' y='30' width='132' height='132' rx='20'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%231F2937' width='540' height='720'/><rect fill='%23CFB53B' y='0' width='540' height='120'/><text x='270' y='70' font-size='32' fill='%231F2937' text-anchor='middle' font-weight='bold'>Portal PWA</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ]
+}
