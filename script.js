@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Registrar Service Worker si es posible
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js').catch(err => {
+        navigator.serviceWorker.register('service-worker.js?v=2').catch(err => {
             console.log('Service Worker no disponible:', err);
         });
     }
