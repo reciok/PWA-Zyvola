@@ -8,6 +8,14 @@ const APPS = [
         icon: '🔐',
         ruta: './Generador de contraseñas/index.html',
         disponible: true
+    },
+    {
+        id: 'financial-calculators',
+        nombre: 'Calculadoras Financieras',
+        descripcion: 'Calcula préstamos, interés simple e interés compuesto',
+        icon: '📈',
+        ruta: './calculadoras financieras/index.html',
+        disponible: true
     }
     // Próximas apps aquí...
     // {

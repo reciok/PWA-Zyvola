@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadoras financieras PWA para prestamo, interes simple y compuesto">
+    <meta name="theme-color" content="#CFB53B">
+    <title>Calculadoras Financieras</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadoras Financieras</h1>
+            <p>Simula escenarios de prestamos e intereses en segundos</p>
+        </header>
+
+        <main>
+            <nav class="tabs" aria-label="Tipos de calculadora">
+                <button class="tab-btn active" data-tab="prestamo">Prestamo</button>
+                <button class="tab-btn" data-tab="simple">Interes simple</button>
+                <button class="tab-btn" data-tab="compuesto">Interes compuesto</button>
+            </nav>
+
+            <section id="prestamo" class="tab-panel active">
+                <h2>Cuota mensual de prestamo</h2>
+                <form class="calc-form" id="loanForm">
+                    <label>Monto del prestamo
+                        <input type="number" id="loanAmount" min="1" step="0.01" required>
+                    </label>
+                    <label>Tasa anual (%)
+                        <input type="number" id="loanRate" min="0" step="0.01" required>
+                    </label>
+                    <label>Plazo (anos)
+                        <input type="number" id="loanYears" min="1" step="1" required>
+                    </label>
+                    <button type="submit">Calcular</button>
+                </form>
+                <div class="result" id="loanResult">Completa los datos para calcular.</div>
+            </section>
+
+            <section id="simple" class="tab-panel">
+                <h2>Interes simple</h2>
+                <form class="calc-form" id="simpleForm">
+                    <label>Capital inicial
+                        <input type="number" id="simplePrincipal" min="1" step="0.01" required>
+                    </label>
+                    <label>Tasa anual (%)
+                        <input type="number" id="simpleRate" min="0" step="0.01" required>
+                    </label>
+                    <label>Tiempo (anos)
+                        <input type="number" id="simpleYears" min="0.1" step="0.1" required>
+                    </label>
+                    <button type="submit">Calcular</button>
+                </form>
+                <div class="result" id="simpleResult">Completa los datos para calcular.</div>
+            </section>
+
+            <section id="compuesto" class="tab-panel">
+                <h2>Interes compuesto</h2>
+                <form class="calc-form" id="compoundForm">
+                    <label>Capital inicial
+                        <input type="number" id="compoundPrincipal" min="1" step="0.01" required>
+                    </label>
+                    <label>Tasa anual (%)
+                        <input type="number" id="compoundRate" min="0" step="0.01" required>
+                    </label>
+                    <label>Tiempo (anos)
+                        <input type="number" id="compoundYears" min="0.1" step="0.1" required>
+                    </label>
+                    <label>Capitalizaciones por ano
+                        <input type="number" id="compoundTimes" min="1" step="1" value="12" required>
+                    </label>
+                    <button type="submit">Calcular</button>
+                </form>
+                <div class="result" id="compoundResult">Completa los datos para calcular.</div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Los calculos son orientativos y no constituyen asesoria financiera.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
